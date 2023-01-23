@@ -13,4 +13,7 @@ export class AppComponent {
   players: Player[] = [];
   selectedPlayer: Player | undefined;
   
+  onSelect(player: Player): void {
+    this.selectedPlayer = player;
+  }
 }

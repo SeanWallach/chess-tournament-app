@@ -9,10 +9,10 @@ import { ScorePairingsTableComponent } from './score-pairings-table/score-pairin
 import { PlayerComponent } from './player/player.component';
 import { FormsModule } from '@angular/forms';
 import { ButtonPanelComponent } from './button-panel/button-panel.component';
-import { ButtonComponent } from './button/button.component';
 import { RulesPanelComponent } from './rules-panel/rules-panel.component';
 import { NewPlayerPanelComponent } from './new-player-panel/new-player-panel.component';
 import { FooterComponent } from './footer/footer.component';
+import { CdkColumnDef } from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,6 @@ import { FooterComponent } from './footer/footer.component';
     ScorePairingsTableComponent,
     PlayerComponent,
     ButtonPanelComponent,
-    ButtonComponent,
     RulesPanelComponent,
     NewPlayerPanelComponent,
     FooterComponent
@@ -32,7 +31,7 @@ import { FooterComponent } from './footer/footer.component';
     MaterialModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CdkColumnDef], // maybe unessesary
   bootstrap: [AppComponent]
 })
 export class AppModule { }

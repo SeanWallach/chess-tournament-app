@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./button-panel.component.css']
 })
 export class ButtonPanelComponent {
-
+  selection: string = "";
 }

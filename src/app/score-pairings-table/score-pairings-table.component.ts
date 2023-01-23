@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PLAYERS } from '../mock-players';
 import { Player } from '../player/player.component';
 
@@ -9,18 +9,18 @@ import { Player } from '../player/player.component';
 })
 
 export class ScorePairingsTableComponent{
-  // players: Player[] = [];
   players = PLAYERS;
   selectedPlayer: Player | undefined;
 
-  tableData = []; 
+  dataSource = PLAYERS; 
 
-  columndefs : any[] = ['names','round1','score'];
+  displayedColumns : string[] = ['names','score'];
 
   // constructor(private service: PlayerService) { }
 
   // ngOnInit() {
-  //   this.players = this.service.getHeroes();
+  //   this.players = PLAYERS;
+  //   this.columndefs = ['names','round1','score'];
   // }
 
   // selectPlayer(player: Player) { this.selectedPlayer = player; }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 export interface Player {
   name: string;
@@ -13,8 +13,5 @@ export type Players = Array<Player>
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent {
-  player: Player = {
-    name: "Sean",
-    elo: 1400,
-  }
+  @Input('currPlayer') currPlayer: Player;
 }

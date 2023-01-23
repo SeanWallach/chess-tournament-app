@@ -1,24 +1,57 @@
-<table mat-table>
-  <tr mat-header-row *matHeaderRowDef="columndefs"></tr>
-    <!-- Name  -->
-    <ng-container matColumnDef="names">
-      <th mat-header-cell *matHeaderCellDef style="width: 100px;">Names</th>
-      <ng-container *ngFor="let player of players">
-        <td mat-cell> 
-          <!-- <span style="font-size:small;">  -->
-            <span>{{player.name}} {{player.elo}}</span>
-          <!-- </span> -->
-        </td>
-      </ng-container>
-    </ng-container>
+<table mat-table [dataSource]="dataSource">
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 
-    <!-- Round 1  -->
-    <ng-container matColumnDef="round1">
-      <th mat-header-cell style="width: 80px;" *matHeaderCellDef>Round 1</th>
-    </ng-container>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-    <!-- Score  -->
-    <ng-container matColumnDef="score">
-      <th mat-header-cell style="width: 80px;" *matHeaderCellDef>Score</th>
+  <!-- Name  -->
+  <ng-container matColumnDef="names">
+    <th mat-header-cell *matHeaderCellDef style="width: 140px;">Names</th>
+    <ng-container *ngIf="players">
+        <tr *ngFor="let player of players;">
+          <td mat-cell *matCellDef="let player"> 
+            <!-- <span>{{player.name}} <i>({{player.elo}})</i></span> -->
+             <app-player [currPlayer]="player"></app-player>
+           </td>
+        </tr>
     </ng-container>
+  </ng-container>
+
+  <!-- Round 1  -->
+  <ng-container matColumnDef="round1">
+    <th mat-header-cell style="width: 80px;" *matHeaderCellDef>Round 1</th>
+    <ng-container *ngFor="let player of players">
+      <td mat-cell *matCellDef> 1 </td>
+    </ng-container>
+  </ng-container>
+
+  <!-- Score  -->
+  <ng-container matColumnDef="score">
+    <th mat-header-cell style="width: 80px;" *matHeaderCellDef>Score</th>
+    <ng-container *ngFor="let player of players">
+      <td mat-cell *matCellDef> 1 </td>
+    </ng-container>
+  </ng-container>
+
+ 
 </table>
+
+<!-- ---------------------------------------------------------------------------------------->
+<!-- <table mat-table [dataSource]="dataSource">
+
+  <ng-container matColumnDef="names">
+    <th mat-header-cell *matHeaderCellDef> Names</th>
+    <td mat-cell *matCellDef="let player"> {{player.elo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="score">
+    <th mat-header-cell *matHeaderCellDef> Score </th>
+    <td mat-cell *matCellDef="let player"> {{player.name}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+   <mat-row *ngFor="let element of dataSource" >
+    <td mat-cell> {{element.elo}} </td>
+    <td mat-cell> {{element.name}} </td>
+  </mat-row>
+</table> -->
