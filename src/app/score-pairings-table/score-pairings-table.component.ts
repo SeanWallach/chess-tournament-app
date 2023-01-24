@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PLAYERS } from '../mock-players';
 import { Player } from '../player/player.component';
 
@@ -16,6 +16,11 @@ export class ScorePairingsTableComponent{
 
   displayedColumns : string[] = ['names','score'];
 
+  @Input()
+  set newRow(row: {elo: number, name: string}) {
+    this.dataSource.push(row);
+  }
+  
   // constructor(private service: PlayerService) { }
 
   // ngOnInit() {
@@ -24,4 +29,8 @@ export class ScorePairingsTableComponent{
   // }
 
   // selectPlayer(player: Player) { this.selectedPlayer = player; }
+
+  onNewPlayerData(data: {elo: number, name: string}) {
+    console.log(data);
+  }
 }

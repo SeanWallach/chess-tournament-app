@@ -1,11 +1,30 @@
 <div>
-    <mat-card>
-        <mat-card-title>Add New Player</mat-card-title>
+    <mat-card style="padding: 12px; background-color: rgb(223, 223, 223)">
+        <mat-card-title style="margin-left: 10px;">Add New Player</mat-card-title>
 
-        <label for="name">Player name: </label>
+        <form class="new-player-form" [formGroup]="newPlayerForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="form-field">
+              <mat-label>Player Name</mat-label>
+              <input matInput placeholder="Ex. John" [formControl]="name">
+            </mat-form-field>
+
+           
+            <mat-form-field class="form-field">
+              <mat-label>Player Elo</mat-label>
+              <input matInput type="number" placeholder="Ex. 1000" [formControl]="elo">
+            </mat-form-field>
+
+            <br>
+            <button mat-button color="primary" type="submit" class="submit-button">
+                ADD
+            </button>
+
+        </form>
+
+        <!-- <label for="name">Player name: </label>
         <input id="name" [(ngModel)]="player.name" placeholder="Name">
 
         <label for="elo">Elo: </label>
-        <input id="elo" [(ngModel)]="player.elo" placeholder="Elo">
+        <input id="elo" [(ngModel)]="player.elo" placeholder="Elo"> -->
     </mat-card>
 </div>

@@ -1,15 +1,18 @@
-<table mat-table [dataSource]="dataSource">
+
+<table mat-table [dataSource]="dataSource" (newPlayerData)="onNewPlayerData($event)">
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
   <!-- Name  -->
   <ng-container matColumnDef="names">
-    <th mat-header-cell *matHeaderCellDef style="width: 140px;">Names</th>
+    <th mat-header-cell *matHeaderCellDef style="width: 140px;">
+      <mat-icon aria-label="badge">badge</mat-icon>
+      Names
+    </th>
     <ng-container *ngIf="players">
         <tr *ngFor="let player of players;">
           <td mat-cell *matCellDef="let player"> 
-            <!-- <span>{{player.name}} <i>({{player.elo}})</i></span> -->
              <app-player [currPlayer]="player"></app-player>
            </td>
         </tr>
@@ -26,32 +29,14 @@
 
   <!-- Score  -->
   <ng-container matColumnDef="score">
-    <th mat-header-cell style="width: 80px;" *matHeaderCellDef>Score</th>
+    <th mat-header-cell style="width: 80px;" *matHeaderCellDef>
+      <mat-icon aria-label="scoreboard">scoreboard</mat-icon>
+      Score
+    </th>
     <ng-container *ngFor="let player of players">
-      <td mat-cell *matCellDef> 1 </td>
+      <td mat-cell *matCellDef> 0 </td>
     </ng-container>
   </ng-container>
 
  
 </table>
-
-<!-- ---------------------------------------------------------------------------------------->
-<!-- <table mat-table [dataSource]="dataSource">
-
-  <ng-container matColumnDef="names">
-    <th mat-header-cell *matHeaderCellDef> Names</th>
-    <td mat-cell *matCellDef="let player"> {{player.elo}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="score">
-    <th mat-header-cell *matHeaderCellDef> Score </th>
-    <td mat-cell *matCellDef="let player"> {{player.name}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-
-   <mat-row *ngFor="let element of dataSource" >
-    <td mat-cell> {{element.elo}} </td>
-    <td mat-cell> {{element.name}} </td>
-  </mat-row>
-</table> -->

@@ -29,7 +29,7 @@ import { CdkColumnDef } from '@angular/cdk/table';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [CdkColumnDef], // maybe unessesary
   bootstrap: [AppComponent]
